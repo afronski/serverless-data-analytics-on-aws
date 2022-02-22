@@ -112,7 +112,7 @@ mainSteps:
 
     - echo '=== INSTALL AND CONFIGURE GITHUB REPOSITORIES ==='
     - mkdir -p /home/ec2-user/repositories/github/afronski/
-    # - cd /home/ec2-user/repositories/github/afronski/ && git clone https://github.com/afronski/serverless-data-analytics-on-aws.git
+    - cd /home/ec2-user/repositories/github/afronski/ && git clone https://github.com/afronski/serverless-data-analytics-on-aws.git
 
     - echo '=== CLEANING EC2-USER ==='
     - sudo -H -u ec2-user bash -c '. /etc/profile.d/bash_completion.sh'
