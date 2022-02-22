@@ -104,7 +104,6 @@ mainSteps:
     - for i in /usr/local/kafka_2.13-${KAFKA_VERSION}/bin/*.sh; do mv $i ${i%???}; done;
     - ln -sfn /usr/local/kafka_2.13-${KAFKA_VERSION} /usr/local/kafka
     - cp /usr/local/kafka_2.13-${KAFKA_VERSION}/bin/kafka-run-class /usr/local/kafka_2.13-${KAFKA_VERSION}/bin/kafka-run-class.sh
-    - echo 'export PATH=/usr/local/kafka/bin:$PATH' >> /home/ec2-user/.profile
 
     - echo '=== INSTALL AND CONFIGURE PSQL ==='
     - amazon-linux-extras enable postgresql12
@@ -115,10 +114,11 @@ mainSteps:
     - cd /home/ec2-user/repositories/github/afronski/ && git clone https://github.com/afronski/serverless-data-analytics-on-aws.git
 
     - echo '=== CLEANING EC2-USER ==='
-    - sudo -H -u ec2-user bash -c '. /etc/profile.d/bash_completion.sh'
-    - sudo -H -u ec2-user bash -c '. /home/ec2-user/.bash_completion'
-    - echo 'source /home/ec2-user/.profile' >> /home/ec2-user/.bash_profile
+    - echo 'export PATH=/usr/local/kafka/bin:/usr/local/bin:$PATH' >> /home/ec2-user/.bash_profile
+    - echo "complete -C '/usr/local/bin/aws_completer' aws" >> /home/ec2-user/.bash_profile
+
     - rm -rf /home/ec2-user/environment/README.md
+
     - chown -R ec2-user:ec2-user /home/ec2-user/
 
     - echo '=== REBOOT ==='
