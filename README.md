@@ -22,6 +22,8 @@ Access to those services remains in *public preview* or *preview* as of *22.02.2
   ```
 - Remember, this feature at the moment is in a *public preview* available in a single region:
   - `us-east-1` (*N. Virginia*).
+- Make sure you've at least once visited *AWS Glue Data Catalog* in the *AWS Management Console*, and you've created
+  a `default` database in the `us-east-1` region.
 
 ### *Amazon Redshift Serverless*
 
