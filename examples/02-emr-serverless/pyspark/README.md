@@ -64,16 +64,16 @@ scale up to *200 vCPUs* or *50* executors:
 
 ```json
 {
-  "applicationId": "00et0dhmhuokmr09",
-  "arn": "arn:aws:emr-serverless:us-east-1:123456789012:/applications/00et0dhmhuokmr09",
+  "applicationId": "<APPLICATION_ID>",
+  "arn": "arn:aws:emr-serverless:us-east-1:<ACCOUNT_ID>:/applications/<APPLICATION_ID>",
   "name": "pyspark-serverless-demo"
 }
 ```
 
-We'll set an `APPLICATION_ID` environment variable to reuse later:
+We'll set an `<APPLICATION_ID>` environment variable to reuse later:
 
 ```shell
-export APPLICATION_ID=00et0dhmhuokmr09
+export APPLICATION_ID=<APPLICATION_ID>
 ```
 
 Get the state of your application:
@@ -133,16 +133,16 @@ This will return information about your application:
 
 ```json
 {
-  "applicationId": "00esprurjpeqpq09",
-  "arn": "arn:aws:emr-serverless:us-east-1:123456789012:/applications/00esprurjpeqpq09/jobruns/00esps8ka2vcu801",
-  "jobRunId": "00esps8ka2vcu801"
+  "applicationId": "<APPLICATION_ID>",
+  "arn": "arn:aws:emr-serverless:us-east-1:<ACCOUNT_ID>:/applications/<APPLICATION_ID>/jobruns/<JOB_RUN_ID>",
+  "jobRunId": "<JOB_RUN_ID>"
 }
 ```
 
 Let's set our `JOB_RUN_ID` variable, so you can use it to monitor the job progress:
 
 ```shell
-export JOB_RUN_ID=00esps8ka2vcu801
+export JOB_RUN_ID=<JOB_RUN_ID>
 ```
 
 ```shell
@@ -160,7 +160,7 @@ aws s3 ls s3://${S3_BUCKET}/logs/applications/$APPLICATION_ID/jobs/$JOB_RUN_ID/
 Or copy the stdout of the job:
 
 ```shell
-aws s3 cp s3://${S3_BUCKET}/logs/applications/$APPLICfATION_ID/jobs/$JOB_RUN_ID/SPARK_DRIVER/stdout.gz - | gunzip
+aws s3 cp s3://${S3_BUCKET}/logs/applications/$APPLICATION_ID/jobs/$JOB_RUN_ID/SPARK_DRIVER/stdout.gz - | gunzip
 ```
 
 ## Clean-up

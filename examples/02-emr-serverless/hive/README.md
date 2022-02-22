@@ -67,8 +67,8 @@ This will return information about your application:
 
 ```json
 {
-  "applicationId": "00et0f0b79s06o09",
-  "arn": "arn:aws:emr-serverless:us-east-1:123456789012:/applications/00et0f0b79s06o09",
+  "applicationId": "<APPLICATION_ID>",
+  "arn": "arn:aws:emr-serverless:us-east-1:<ACCOUNT_ID>:/applications/<APPLICATION_ID>",
   "name": "hive-serverless-demo"
 }
 ```
@@ -76,7 +76,7 @@ This will return information about your application:
 You'll set an `APPLICATION_ID` environment variable to reuse later:
 
 ```shell
-export APPLICATION_ID=00et0f0b79s06o09
+export APPLICATION_ID=<APPLICATION_ID>
 ```
 
 Get the state of your application:
@@ -138,16 +138,16 @@ As a result, you will get the job run identifier:
 
 ```json
 {
-  "applicationId": "00esprurjpeqpq09",
-  "arn": "arn:aws:emr-serverless:us-east-1:123456789012:/applications/00esprurjpeqpq09/jobruns/00esps8ka2vcu801",
-  "jobRunId": "00esps8ka2vcu801"
+  "applicationId": "<APPLICATION_ID>",
+  "arn": "arn:aws:emr-serverless:us-east-1:<ACCOUNT_ID>:/applications/<APPLICATION_ID>/jobruns/<JOB_RUN_ID>",
+  "jobRunId": "<JOB_RUN_ID>"
 }
 ```
 
 Let's set our `JOB_RUN_ID` variable, so you can use it to monitor the job progress:
 
 ```shell
-export JOB_RUN_ID=00esps8ka2vcu801
+export JOB_RUN_ID=<JOB_RUN_ID>
 aws emr-serverless get-job-run --application-id $APPLICATION_ID --job-run-id $JOB_RUN_ID
 ```
 
