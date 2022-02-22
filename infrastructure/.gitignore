@@ -1,6 +1,7 @@
 # Complication artifacts:
 *.js
 *.d.ts
+!.eslintrc.js
 
 # CDK asset staging directory:
 .cdk.staging/
