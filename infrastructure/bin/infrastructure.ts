@@ -22,7 +22,7 @@ if (!userName) {
 
 const app = new cdk.App();
 
-const usEast1Infrastructure = new RegionalInfrastructureStack(app, "TestInfrastructureStackForEMRAndRedshift", {
+const usEast1Infrastructure = new RegionalInfrastructureStack(app, "TestInfrastructureStackForEMRPlusRedshift", {
   env: { account: accountId, region: "us-east-1" },
 
   userName,
