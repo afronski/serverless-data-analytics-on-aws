@@ -13,7 +13,7 @@ Define some environment variables to be used later:
 
 ```shell
 export S3_BUCKET=<YOUR_BUCKET_NAME>
-export JOB_ROLE_ARN=arn:aws:iam::<ACCOUNT_ID>:role/emr-serverless-job-role
+export JOB_ROLE_ARN=arn:aws:iam::<ACCOUNT_ID>:role/emr-serverless-iam-role
 ```
 
 First, make sure the `job.py` script is uploaded to an *S3* bucket in the `us-east-1` region:
