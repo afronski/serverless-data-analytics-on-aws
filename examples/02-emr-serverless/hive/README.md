@@ -1,7 +1,6 @@
 # *Amazon EMR Serverless* application that invokes *Hive* query
 
-This example shows how to run a *Hive* query on *Amazon EMR Serverless* that analyzes data from the
-[Software Heritage](https://registry.opendata.aws/software-heritage/) dataset from the *Registry of Open Data on AWS*.
+This example shows how to run a *Hive* query on *Amazon EMR Serverless*.
 
 **ℹ️ Throughout this demo, you will utilize environment variables to allow for easy copy/paste!**
 
