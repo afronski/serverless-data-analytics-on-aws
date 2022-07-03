@@ -1,29 +1,21 @@
-# Source Code for the talk *"Serverless Data Analytics on AWS"*
+# Examples for the *"Serverless Data Analytics on AWS"* talk
 
-This is a repository that contains demos for 3 *Serverless Data Analytics* services announced as previews or public
-previews during *AWS re:Invent 2021* in December 2021:
+This is a repository that contains demos for 3 *Serverless Data Analytics* services announced during *AWS re:Invent 2021* in December 2021:
 
-- *Amazon EMR Serverless* (*preview* available in a single region - `us-east-1`)
+- *Amazon MSK Serverless*
+- *Amazon EMR Serverless*
 - *Amazon Redshift Serverless* (*public preview* available in a few *AWS* regions)
-- *Amazon MSK Serverless* (*public preview* available in a single region - `us-east-2`)
-
-Access to those services remains in *public preview* or *preview* as of *22.02.2022*.
 
 ## Pre-requisites
 
+### *Amazon MSK Serverless*
+
+- There is a support for that feature in *AWS CLI* in the newest versions.
+
 ### *Amazon EMR Serverless*
 
-- If you want to run *Amazon EMR Serverless* example, you need to sign-up in order to get access to the preview. You
-  can do it [here](https://pages.awscloud.com/EMR-Serverless-Preview.html).
-- Additionally, you need to add to your `aws-cli` installation `emr-serverless` command via following lines:
-  ```shell
-  aws s3 cp s3://elasticmapreduce/emr-serverless-preview/artifacts/latest/dev/cli/service.json ./service.json
-  aws configure add-model --service-model file://service.json
-  ```
-- Remember, this feature at the moment is in a *public preview* available in a single region:
-  - `us-east-1` (*N. Virginia*).
-- Make sure you've at least once visited *AWS Glue Data Catalog* in the *AWS Management Console*, and you've created
-  a `default` database in the `us-east-1` region.
+- There is a support for that feature in *AWS CLI* in the newest versions.
+- Make sure you've at least once visited *AWS Glue Data Catalog* in the *AWS Management Console*, and you've created a `default` database in the given region where you want to use that.
 
 ### *Amazon Redshift Serverless*
 
@@ -39,15 +31,9 @@ Access to those services remains in *public preview* or *preview* as of *22.02.2
 - According to the announcement [here](https://aws.amazon.com/blogs/aws/introducing-amazon-redshift-serverless-run-analytics-at-any-scale-without-having-to-manage-infrastructure/),
   **until** this service is in the *preview* you get a one time $500 in *AWS Credits* to experiment with it.
 
-### *Amazon MSK Serverless*
-
-- There is a support for that feature in *AWS CLI* in the newest versions.
-- Remember, this feature at the moment is in a *public preview* available in a single region:
-  - `us-east-2` (*Ohio*).
-
 ## License
 
-- [MIT](LICENSE)
+- [MIT](./LICENSE)
 
 ## Authors
 
