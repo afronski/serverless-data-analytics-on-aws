@@ -49,9 +49,8 @@ Now every single thing you will enter on the producer side, will be immediately 
 
 ## Known Limitations
 
-- **No way to choose *Apache Kafka* version**!
-- **Only *IAM* authentication is supported**!
-- It only works in `us-east-2` at the moment.
+- **No way to choose *Apache Kafka* version**.
+- **Only *IAM* authentication is supported**.
 - No *AWS CloudFormation* support at the moment.
 - No way to reconfigure brokers at the moment.
 - Quotas are restrictive:
