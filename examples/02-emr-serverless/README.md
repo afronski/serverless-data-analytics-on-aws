@@ -17,8 +17,6 @@ In both cases we are building container images that allow us to do this locally 
 
 ## Known Limitations
 
-- It only works in `us-east-1` at the moment.
-- No *AWS CloudFormation*, nor *AWS Management Console* support at the moment - only *AWS CLI*.
 - It supports only `SPARK` or `HIVE` application types at the moment.
 - You can have up to 10 running applications per account.
 - You can have up to 100 active workers per application.
