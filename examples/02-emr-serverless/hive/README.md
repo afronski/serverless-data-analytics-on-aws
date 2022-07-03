@@ -6,8 +6,7 @@ This example shows how to run a *Hive* query on *Amazon EMR Serverless*.
 
 ## Setup
 
-**ℹ️ You should have already completed the pre-requisites in this repo's [README](/README.md). Also, this example
-requires that you have access to the *AWS Glue Data Catalog*.**
+**ℹ️ You should have already completed the pre-requisites in this repo's [README](/README.md). Also, this example requires that you have access to the *AWS Glue Data Catalog*.**
 
 Define some environment variables to be used later:
 
@@ -16,19 +15,16 @@ export S3_BUCKET=<YOUR_BUCKET_NAME>
 export JOB_ROLE_ARN=arn:aws:iam::<ACCOUNT_ID>:role/emr-serverless-iam-role
 ```
 
-First, make sure the `01-query.sql` and `00-initialize-schema.sql` scripts are uploaded to an S3 bucket in the
-`us-east-1` region:
+First, make sure the `01-query.sql` and `00-initialize-schema.sql` scripts are uploaded to an S3 bucket in the given region:
 
 ```shell
 aws s3 cp 00-initialize-schema.sql s3://${S3_BUCKET}/code/hive/
 aws s3 cp 01-query.sql s3://${S3_BUCKET}/code/hive/
 ```
 
-Now, let's create and start an *Application* on *EMR Serverless*. Applications are where you submit jobs and are
-associated with a specific open source framework and release version.
+Now, let's create and start an *Application* on *EMR Serverless*. Applications are where you submit jobs and are associated with a specific open source framework and release version.
 
-For this application, you'll configure [pre-initialized capacity](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/application-capacity-api.html)
-to ensure this application can begin running jobs immediately.
+For this application, you'll configure [pre-initialized capacity](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/application-capacity-api.html) to ensure this application can begin running jobs immediately.
 
 **ℹ️ Please note that leaving a pre-initialized application running will incur costs in your *AWS Account*.**
 
@@ -90,13 +86,7 @@ Once your application is in `CREATED` state, you can go ahead and start it:
 aws emr-serverless start-application --application-id $APPLICATION_ID
 ```
 
-Once your application is in `STARTED` state, you can submit jobs. With [pre-initialized capacity](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/application-capacity-api.html),
-you can define a minimum amount of resources that *EMR Serverless* keeps ready to respond to interactive queries.
-*EMR Serverless* will scale your application up as necessary to respond to workloads, but return to the
-pre-initialized capacity when there is no activity. You can start or stop an application to effectively pause your
-application so that you are not billed for resources you're not using. If you don't need second-level response times
-in your workloads, you can use the default capacity and EMR Serverless will decomission all resources when a job is
-complete and scale back up as more workloads come in.
+Once your application is in `STARTED` state, you can submit jobs. With [pre-initialized capacity](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/application-capacity-api.html), you can define a minimum amount of resources that *EMR Serverless* keeps ready to respond to interactive queries. *EMR Serverless* will scale your application up as necessary to respond to workloads, but return to the pre-initialized capacity when there is no activity. You can start or stop an application to effectively pause your application so that you are not billed for resources you're not using. If you don't need second-level response times in your workloads, you can use the default capacity and EMR Serverless will decommission all resources when a job is complete and scale back up as more workloads come in.
 
 ## Run your job
 
@@ -166,8 +156,7 @@ aws s3 cp s3://${S3_BUCKET}/hive-logs/applications/$APPLICATION_ID/jobs/$JOB_RUN
 
 ## Clean-up
 
-When you're all done, make sure to call `stop-application` to decommission your capacity and `delete-application`
-if you're all done:
+When you're all done, make sure to call `stop-application` to decommission your capacity and `delete-application` if you're all done:
 
 ```shell
 aws emr-serverless stop-application --application-id $APPLICATION_ID
@@ -176,8 +165,7 @@ aws emr-serverless delete-application --application-id $APPLICATION_ID
 
 ## *Tez UI* Debugging
 
-First, follow the steps in [building the Tez UI Docker container](/examples/02-emr-serverless/utilities/tez-ui) to build
-the  container locally.
+First, follow the steps in [building the Tez UI Docker container](/examples/02-emr-serverless/utilities/tez-ui) to build the  container locally.
 
 Then, get credentials and set `S3_LOG_URI`:
 

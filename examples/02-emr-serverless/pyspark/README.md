@@ -21,11 +21,9 @@ First, make sure the `job.py` script is uploaded to an *S3* bucket in the `us-ea
 aws s3 cp job.py s3://${S3_BUCKET}/code/pyspark/
 ```
 
-Now, let's create and start an *Application* on *EMR Serverless*. Applications are where you submit jobs and are
-associated with a specific open source framework and release version.
+Now, let's create and start an *Application* on *EMR Serverless*. Applications are where you submit jobs and are associated with a specific open source framework and release version.
 
-For this application, we'll configure [pre-initialized capacity](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/application-capacity-api.html)
-to ensure this application can begin running jobs immediately.
+For this application, we'll configure [pre-initialized capacity](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/application-capacity-api.html) to ensure this application can begin running jobs immediately.
 
 **ℹ️ Please note that leaving a pre-initialized application running will incur costs in your *AWS Account*.**
 
@@ -57,9 +55,7 @@ aws emr-serverless create-application   \
   }'
 ```
 
-This will return information about your application. In this case, we've created an application that can handle
-2 simultaneous *Spark* apps with an initial set of *10* executors, each with *4 vCPU* and *4 GB* of memory, that can
-scale up to *200 vCPUs* or *50* executors:
+This will return information about your application. In this case, we've created an application that can handle 2 simultaneous *Spark* apps with an initial set of *10* executors, each with *4 vCPU* and *4 GB* of memory, that can scale up to *200 vCPUs* or *50* executors:
 
 ```json
 {
@@ -89,23 +85,15 @@ aws emr-serverless start-application --application-id $APPLICATION_ID
 
 Once your application is in `STARTED` state, you can submit jobs:
 
-With [pre-initialized capacity](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/application-capacity-api.html),
-you can define a minimum amount of resources that *EMR Serverless* keeps ready to respond to interactive queries.
-*EMR Serverless* will scale your application up as necessary to respond to workloads, but return to the pre-initialized
-capacity when there is no activity. You can start or stop an application to effectively pause your application so that
-you are not billed for resources you're not using. If you don't need second-level response times in your workloads,
-you can use the default capacity and EMR Serverless will decomission all resources when a job is complete and scale
-back up as more workloads come in.
+With [pre-initialized capacity](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/application-capacity-api.html), you can define a minimum amount of resources that *EMR Serverless* keeps ready to respond to interactive queries. *EMR Serverless* will scale your application up as necessary to respond to workloads, but return to the pre-initialized capacity when there is no activity. You can start or stop an application to effectively pause your application so that you are not billed for resources you're not using. If you don't need second-level response times in your workloads, you can use the default capacity and EMR Serverless will decomission all resources when a job is complete and scale back up as more workloads come in.
 
 ## Run your job
 
 Now that you've created your application, you can submit jobs to it at any time.
 
-You define our `sparkSubmitParameters` with resources that match our pre-initialized capacity, but *EMR Serverless* will
-still automatically scale as necessary.
+You define our `sparkSubmitParameters` with resources that match our pre-initialized capacity, but *EMR Serverless* will still automatically scale as necessary.
 
-**ℹ️ Note that with *Spark* jobs, you must account for *Spark* overhead and configure our executor with less memory
-than the application.**
+**ℹ️ Note that with *Spark* jobs, you must account for *Spark* overhead and configure our executor with less memory than the application.**
 
 In this case, we're also configuring *Spark* logs to be delivered to our *S3* bucket:
 
@@ -164,8 +152,7 @@ aws s3 cp s3://${S3_BUCKET}/logs/applications/$APPLICATION_ID/jobs/$JOB_RUN_ID/S
 
 ## Clean-up
 
-When you're all done, make sure to call `stop-application` to decommission your capacity and `delete-application`
-if you're all done:
+When you're all done, make sure to call `stop-application` to decommission your capacity and `delete-application` if you're all done:
 
 ```shell
 aws emr-serverless stop-application --application-id $APPLICATION_ID
@@ -199,8 +186,7 @@ podman run --rm -d                                                    \
   emr/spark-ui
 ```
 
-After start, you can access the *Spark UI* via following address: `http://localhost:18080`. When you're done, stop the
-container:
+After start, you can access the *Spark UI* via following address: `http://localhost:18080`. When you're done, stop the container:
 
 ```shell
 podman stop emr-serverless-spark-ui
@@ -208,8 +194,7 @@ podman stop emr-serverless-spark-ui
 
 ## Using the *AWS Glue Data Catalog* with *EMR Serverless*
 
-You can use the *AWS Glue Data Catalog* along with *SparkSQL* in *EMR Serverless* by setting the proper *Hive Metastore*
-config item.
+You can use the *AWS Glue Data Catalog* along with *SparkSQL* in *EMR Serverless* by setting the proper *Hive Metastore* config item.
 
 You can do this when creating a new `SparkSession` in your *PySpark* code, make sure you also call
 `enableHiveSupport()`:

@@ -84,10 +84,6 @@ mainSteps:
     - echo '=== INSTALL AND CONFIGURE MACHINE ==='
     - echo 'fs.inotify.max_user_watches=524288' >> /etc/sysctl.conf && sysctl -p
 
-    - sudo -i -u ec2-user bash -c 'aws s3 cp s3://elasticmapreduce/emr-serverless-preview/artifacts/latest/dev/cli/service.json /tmp/service.json'
-    - sudo -i -u ec2-user bash -c 'aws configure add-model --service-model file:///tmp/service.json'
-    - sudo -i -u ec2-user bash -c 'rm -rf /tmp/service.json'
-
     - echo '=== INSTALL AND CONFIGURE NODE.JS ==='
     - sudo -i -u ec2-user bash -c 'source /home/ec2-user/.nvm/nvm.sh && nvm install 16.14.0'
     - sudo -i -u ec2-user bash -c 'source /home/ec2-user/.nvm/nvm.sh && nvm use 16.14.0 && nvm alias default 16.14.0'

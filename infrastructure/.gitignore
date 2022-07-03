@@ -3,6 +3,7 @@
 *.d.ts
 !.eslintrc.js
 
-# CDK asset staging directory:
+# CDK assets and staging directory:
 .cdk.staging/
 cdk.out/
+cdk.context.json

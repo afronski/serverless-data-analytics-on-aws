@@ -1,6 +1,8 @@
+# Compilation artifacts and code:
 *.ts
 !*.d.ts
 
-# CDK asset staging directory
+# CDK assets and staging directory:
 .cdk.staging
 cdk.out
+cdk.context.json

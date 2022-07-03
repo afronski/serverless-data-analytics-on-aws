@@ -7,8 +7,7 @@ We have a few different directories here. Two are representing examples how to o
 - [`hive`](./hive): contains example how to run a *Hive* queries via *EMR Serverless* application.
 - [`pyspark`](./pyspark): contains example how to run a *PySpark* job via *EMR Serverless* application.
 
-Another two are for the debugging purposes - either via *Apache Spark UI* for *PySpark* or via *Tez UI*, where we can
-debug *Hive* queries:
+Another two are for the debugging purposes - either via *Apache Spark UI* for *PySpark* or via *Tez UI*, where we can debug *Hive* queries:
 
 - [`utilities/spark-ui`](./utilities/spark-ui): it contains definitions for building a container with *Apache Spark UI*.
 - [`utilities/tez-ui`](./utilities/tez-ui): it contains definitions for building a container with *Tez UI*.

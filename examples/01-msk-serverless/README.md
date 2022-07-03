@@ -4,15 +4,13 @@
 
 **ℹ️ Throughout this demo, you will utilize environment variables to allow for easy copy/paste!**
 
-As a first step you should head to this directory `examples/01-msk-serverless`. Then we need to export *JAR* file into
-the that *Java* `CLASSPATH` which will handle *IAM* authentication via *SASL*:
+As a first step you should head to this directory `examples/01-msk-serverless`. Then we need to export *JAR* file into the that *Java* `CLASSPATH` which will handle *IAM* authentication via *SASL*:
 
 ```shell
 export CLASSPATH=$(pwd)/aws-msk-iam-auth-1.1.2-all.jar
 ```
 
-Next, we need to get addresses of the *Apache Kafka* brokers - either from the *AWS Management Console* or from the
-*AWS CLI*:
+Next, we need to get addresses of the *Apache Kafka* brokers - either from the *AWS Management Console* or from the *AWS CLI*:
 
 ```shell
 export CLUSTER_NAME=<PUT HERE YOUR SERVERLESS CLUSTER NAME>
