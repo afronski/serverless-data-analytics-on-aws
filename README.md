@@ -1,4 +1,4 @@
-# *"Serverless Data Analytics on AWS"*: Examples and Source Code
+# *"Serverless Data Analytics on AWS"*: Examples
 
 This is a repository that contains demos for 3 *Serverless Data Analytics* services announced during *AWS re:Invent 2021* in December 2021:
 
