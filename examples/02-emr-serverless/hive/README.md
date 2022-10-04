@@ -32,7 +32,7 @@ For this application, you'll configure [pre-initialized capacity](https://docs.a
 aws emr-serverless create-application     \
   --type HIVE                             \
   --name hive-serverless-demo             \
-  --release-label "emr-5.34.0-preview"    \
+  --release-label "emr-6.8.0"             \
   --initial-capacity '{
       "DRIVER": {
         "workerCount": 1,
