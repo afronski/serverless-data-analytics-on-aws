@@ -31,7 +31,7 @@ For this application, we'll configure [pre-initialized capacity](https://docs.aw
 aws emr-serverless create-application   \
   --type SPARK                          \
   --name pyspark-serverless-demo        \
-  --release-label "emr-6.5.0-preview"   \
+  --release-label "emr-6.8.0"           \
   --initial-capacity '{
     "DRIVER": {
       "workerCount": 2,
