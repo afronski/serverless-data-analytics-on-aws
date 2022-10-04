@@ -49,7 +49,6 @@ Now every single thing you will enter on the producer side, will be immediately 
 
 - **No way to choose *Apache Kafka* version**.
 - **Only *IAM* authentication is supported**.
-- No *AWS CloudFormation* support at the moment.
 - No way to reconfigure brokers at the moment.
 - Quotas are restrictive:
   - Maximum data retention: `1 day`
